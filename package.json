@@ -1,0 +1,32 @@
+{
+  "name": "miniflux-todomvc",
+  "description": "Demonstrating a simple Flux implementation",
+  "author": "Jorin Vogel",
+  "devDependencies": {
+    "babel-core": "^5.6.15",
+    "babel-eslint": "^3.1.19",
+    "babel-loader": "^5.2.2",
+    "classnames": "^2.1.2",
+    "es6-promise": "^2.3.0",
+    "node-libs-browser": "^0.5.2",
+    "node-uuid": "^1.4.3",
+    "react": "^0.13.3",
+    "react-hot-loader": "^1.2.7",
+    "react-router": "^1.0.0-beta3",
+    "standard": "^4.3.1",
+    "webpack": "^1.10.0",
+    "webpack-dev-server": "^1.10.1",
+    "whatwg-fetch": "^0.9.0"
+  },
+  "scripts": {
+    "start": "node webpack.js",
+    "build": "standard && webpack --config webpack.prod.js"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "dependencies": {
+    "todomvc-app-css": "^2.0.1",
+    "todomvc-common": "^1.0.2"
+  }
+}
