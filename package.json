@@ -8,6 +8,7 @@
     "babel-loader": "^5.2.2",
     "classnames": "^2.1.2",
     "es6-promise": "^2.3.0",
+    "immutable": "^3.7.4",
     "node-libs-browser": "^0.5.2",
     "node-uuid": "^1.4.3",
     "react": "^0.13.3",
