@@ -12,6 +12,7 @@ export default React.createClass({
     editing: PropTypes.string
   },
 
+  // Focus todo when user starts editing a it.
   componentDidUpdate: function (prevProps) {
     if (!prevProps.editing && this.props.editing) {
       var node = this.refs.editField.getDOMNode()

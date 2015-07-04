@@ -25,6 +25,7 @@ export default React.createClass({
 
   handleKeyDown: function (event) {
     if (event.which !== enterKey) return
+
     event.preventDefault()
 
     var val = this.refs.newField.getDOMNode().value.trim()
@@ -32,6 +33,8 @@ export default React.createClass({
     if (!val) return
 
     this.props.actions.add(val)
+    // Not sure if it's nice to change the DOM manually here.
+    // Alternatively, could include the value of this input field in app state.
     this.refs.newField.getDOMNode().value = ''
   }
 

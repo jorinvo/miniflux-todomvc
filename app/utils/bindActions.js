@@ -1,3 +1,10 @@
+// This let's us call the actions without
+// specifing `render` and `state` every time.
+// All other arguments are forwarded to the action.
+// We can also call other actions from an action via `this.otherAction()`.
+//
+// This also logs the actions to the console in development mode
+// and provides you `actions`, `state` and `render` as global utilities.
 export default function bindActions (actions, render, initialState) {
   var state = initialState
 
@@ -18,8 +25,8 @@ export default function bindActions (actions, render, initialState) {
 
   if (process.env.NODE_ENV !== 'production') {
     window.actions = boundActions
-    window.render = render
     window.state = state
+    window.render = render
   }
 
   return boundActions

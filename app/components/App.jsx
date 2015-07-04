@@ -12,8 +12,9 @@ export default React.createClass({
   },
 
   render () {
+    // Just calculate this once.
     var activeCount = this.props.todos
-      .reduce((c, todo) => todo.get('completed') ? c : c + 1, 0)
+      .reduce((x, todo) => todo.get('completed') ? x : x + 1, 0)
 
     return (
       <div>
@@ -32,7 +33,7 @@ export default React.createClass({
           className='toggle-all'
           type='checkbox'
           onChange={this.toggleAll}
-          checked={activeCount === 0}
+          checked={!activeCount}
         />
       <ul className='todo-list'>
           {this.renderTodoItems()}
@@ -72,6 +73,7 @@ export default React.createClass({
     this.props.actions.toggleAll(e.target.checked)
   },
 
+  // Since there are only 3 options, it's fine to calculate it this way.
   getFilterOption () {
     var o = this.props.params.option
     if (o === 'completed' || o === 'active') return o
