@@ -4,6 +4,8 @@ I rebuilt [TodoMVC][todomvc] to learn how to use the ideas behind the [Flux][flu
 
 To learn more about my motivation behind this, checkout [this blog post][post].
 
+You can see a working version of this running on [GH-Pages][pages].
+
 
 ## Technologies
 
@@ -40,6 +42,7 @@ or start a discussion in the [issues][issues].
 [todomvc]: http://todomvc.com/
 [flux]: https://facebook.github.io/flux/
 [post]: http://jorin.me/miniflux/
+[pages]: https://jorin-vogel.github.io/miniflux-todomvc
 [react]: http://facebook.github.io/react/
 [babel]: https://babeljs.io/
 [reactrouter]: http://rackt.github.io/react-router/tags/v1.0.0-beta3.html
