@@ -1,8 +1,11 @@
 import React, {PropTypes} from 'react'
+import Pure from 'react/lib/ReactComponentWithPureRenderMixin'
 import {pluralize} from '../utils/helpers'
 import {Link} from 'react-router'
 
 export default React.createClass({
+
+  mixins: [Pure],
 
   propTypes: {
     actions: PropTypes.objectOf(PropTypes.func).isRequired,

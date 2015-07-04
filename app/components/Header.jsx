@@ -1,8 +1,11 @@
 import React, {PropTypes} from 'react'
+import Pure from 'react/lib/ReactComponentWithPureRenderMixin'
 
 const enterKey = 13
 
 export default React.createClass({
+
+  mixins: [Pure],
 
   propTypes: {
     actions: PropTypes.object.isRequired

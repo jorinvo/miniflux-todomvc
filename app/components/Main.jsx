@@ -39,7 +39,9 @@ export default React.createClass({
   },
 
   render () {
-    // Allows hot reloading
+    // If we don't re-bind the actions,
+    // changes to them won't be visible while hot loading.
+    // Note that this makes the PureRenderMixin useless in dev mode.
     if (process.env.NODE_ENV !== 'production') this.bindActions()
 
     // With the 1.0 version of React Router <RouteHandler> is gone and
