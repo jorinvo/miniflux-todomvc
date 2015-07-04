@@ -11,8 +11,9 @@ To name a few you might be interested in:
 - [React][react]
 - [Babel][babel] for .jsx and ES6 transpilation
 - [React Router]
-- [Webpack][webpack] together with [React Hot Loader] for an amazing development flow.
-- [Immutable.js][immutable] for awesome data structures.
+- [Webpack][webpack] together with [React Hot Loader] for an amazing development flow
+- [Immutable.js][immutable] for awesome data structures
+- [Tape][tape] for enjoyable testing
 
 
 ## Development
@@ -21,6 +22,8 @@ To name a few you might be interested in:
 - Setup everything with `npm install`
 - Use `npm start` for development. You can find the app at [localhost:3000][localhost].
 - To get a production version use 'npm run build'.
+- For testing use `npm test`
+or to keep running the tests on file changes use `npm run watch-tests`
 
 
 ## Contributing
@@ -40,6 +43,7 @@ or start a discussion in the [issues][issues].
 [hotload]: https://github.com/gaearon/react-hot-loader
 [webpack]: http://webpack.github.io/
 [immutable]: http://facebook.github.io/immutable-js/
+[tape]: https://github.com/substack/tape
 [node]: http://nodejs.org/
 [localhost]: http://localhost:3000/
 [issues]: https://github.com/jorin-vogel/miniflux-todomvc/issues

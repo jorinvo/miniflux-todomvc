@@ -3,6 +3,7 @@
   "description": "Demonstrating a simple Flux implementation",
   "author": "Jorin Vogel",
   "devDependencies": {
+    "babel": "^5.6.14",
     "babel-core": "^5.6.15",
     "babel-eslint": "^3.1.19",
     "babel-loader": "^5.2.2",
@@ -15,13 +16,19 @@
     "react-hot-loader": "^1.2.7",
     "react-router": "^1.0.0-beta3",
     "standard": "^4.3.1",
+    "tap-spec": "^4.0.2",
+    "tape": "^4.0.0",
+    "watch": "^0.16.0",
     "webpack": "^1.10.0",
     "webpack-dev-server": "^1.10.1",
     "whatwg-fetch": "^0.9.0"
   },
   "scripts": {
     "start": "node webpack.js",
-    "build": "standard && webpack --config webpack.prod.js"
+    "lint": "standard app",
+    "build": "npm run lint && webpack --config webpack.prod.js",
+    "test": "npm run lint && babel-node app/test.js | tap-spec",
+    "watch-tests": "watch 'npm run test' app"
   },
   "standard": {
     "parser": "babel-eslint"
