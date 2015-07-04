@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import {fromJS} from 'immutable'
 import actionFunctions from '../actions'
 import bindActions from '../utils/bindActions'
 import {store} from '../utils/helpers'
@@ -14,8 +15,10 @@ export default React.createClass({
 
   getInitialState () {
     return {
-      todos: store(storageKey),
-      editing: null
+      data: fromJS({
+        todos: store(storageKey),
+        editing: null
+      })
     }
   },
 
@@ -25,10 +28,10 @@ export default React.createClass({
 
   bindActions () {
     var render = state => {
-      this.setState(state)
-      store(storageKey, state.todos)
+      this.setState({ data: state })
+      store(storageKey, state.get('todos').toJS())
     }
-    this.actions = bindActions(actionFunctions, render, this.state)
+    this.actions = bindActions(actionFunctions, render, this.state.data)
   },
 
   render () {
@@ -42,8 +45,8 @@ export default React.createClass({
 
         {React.cloneElement(this.props.children, {
           actions: this.actions,
-          todos: this.state.todos,
-          editing: this.state.editing
+          todos: this.state.data.get('todos'),
+          editing: this.state.data.get('editing')
         })}
 
       </div>

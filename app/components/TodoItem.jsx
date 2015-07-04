@@ -25,25 +25,25 @@ export default React.createClass({
 
     return (
       <li className={classNames({
-          completed: todo.completed,
-          editing: this.props.editing === todo.id
+          completed: todo.get('completed'),
+          editing: this.props.editing === todo.get('id')
       })}>
         <div className='view'>
           <input
             className='toggle'
             type='checkbox'
-            checked={todo.completed}
+            checked={todo.get('completed')}
             onChange={this.handleCheckboxClick}
           />
         <label onDoubleClick={this.handleDoubleClick}>
-            {todo.title}
+            {todo.get('title')}
           </label>
           <button className='destroy' onClick={this.handleDestroyClick} />
         </div>
         <input
           ref='editField'
           className='edit'
-          defaultValue={todo.title}
+          defaultValue={todo.get('title')}
           onBlur={this.handleSubmit}
           onKeyDown={this.handleKeyDown}
         />

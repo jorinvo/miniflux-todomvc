@@ -13,7 +13,7 @@ export default React.createClass({
 
   render () {
     var activeCount = this.props.todos
-      .reduce((c, todo) => todo.completed ? c : c + 1, 0)
+      .reduce((c, todo) => todo.get('completed') ? c : c + 1, 0)
 
     return (
       <div>
@@ -24,7 +24,7 @@ export default React.createClass({
   },
 
   renderTodoList (activeCount) {
-    if (!this.props.todos.length) return
+    if (!this.props.todos.size) return
 
     return (
       <section className='main'>
@@ -56,7 +56,7 @@ export default React.createClass({
   },
 
   renderFooter (activeCount) {
-    var completedCount = this.props.todos.length - activeCount
+    var completedCount = this.props.todos.size - activeCount
 
     if (!activeCount && !completedCount) return
 
@@ -81,7 +81,7 @@ export default React.createClass({
 })
 
 var todoFilters = {
-  active: todo => !todo.completed,
-  completed: todo => todo.completed,
+  active: todo => !todo.get('completed'),
+  completed: todo => todo.get('completed'),
   all: () => true
 }
