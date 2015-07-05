@@ -24,18 +24,18 @@ To name a few you might be interested in:
 - Make sure you have [node.js][node] installed.
 - Setup everything with `npm install`.
 - Use `npm start` for development. You can find the app at [localhost:3000][localhost].
-- To get a production version use 'npm run build'.
-- For testing use `npm test`
-or to keep running the tests on file changes use `npm run watch-tests`.
+- To get a production version use `npm run build`.
+- For testing use `npm test`.
+- To keep running the tests on file changes use `npm run watch-tests`.
 
 
 ## Contributing
 
 Let's help each other learning new things!
 
-Feel free to ask in the [issues][issues], if you have some question.
+Feel free to ask in the [issues][issues], if you have any question.
 
-If you can help me improve this example application open a [Pull Request][pr]
+If you can help me improve this example application open a [pull request][pr]
 or start a discussion in the [issues][issues].
 
 
