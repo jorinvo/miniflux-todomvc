@@ -8,7 +8,7 @@ export default React.createClass({
   mixins: [Pure],
 
   propTypes: {
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.objectOf(PropTypes.func).isRequired
   },
 
   render () {

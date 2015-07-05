@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import {List} from 'immutable'
 import Pure from 'react/lib/ReactComponentWithPureRenderMixin'
 import Footer from './Footer'
 import TodoItem from './TodoItem'
@@ -8,8 +9,8 @@ export default React.createClass({
   mixins: [Pure],
 
   propTypes: {
-    actions: PropTypes.object.isRequired,
-    todos: PropTypes.arrayOf(PropTypes.object).isRequired,
+    actions: PropTypes.objectOf(PropTypes.func).isRequired,
+    todos: PropTypes.instanceOf(List).isRequired,
     editing: PropTypes.string,
     params: PropTypes.object.isRequired
   },
@@ -51,6 +52,7 @@ export default React.createClass({
       .map(todo => {
         return (
           <TodoItem
+            key = {todo.get('id')}
             todo={todo}
             actions={this.props.actions}
             editing={this.props.editing}

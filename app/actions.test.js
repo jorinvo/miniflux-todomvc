@@ -15,7 +15,7 @@ var todos = state.get('todos')
 
 test('# actions', t => {
 
-  t.test('add()', t => {
+  t.test('add', t => {
     t.plan(3)
 
     var title = 'test todo'
@@ -29,7 +29,7 @@ test('# actions', t => {
     }, state, title)
   })
 
-  t.test('destroy()', t => {
+  t.test('destroy', t => {
     t.plan(3)
 
     var todo = todos.first()
@@ -44,7 +44,7 @@ test('# actions', t => {
     }, state, todo)
   })
 
-  t.test('edit()', t => {
+  t.test('edit', t => {
     t.plan(1)
 
     var todo = todos.first()
@@ -54,7 +54,7 @@ test('# actions', t => {
     }, state, todo)
   })
 
-  t.test('stopEditing()', t => {
+  t.test('stopEditing', t => {
     t.plan(1)
 
     actions.stopEditing(s => {
@@ -62,7 +62,7 @@ test('# actions', t => {
     }, state)
   })
 
-  t.test('update()', t => {
+  t.test('update', t => {
     t.plan(3)
 
     var title = 'I love updating!'
@@ -78,7 +78,7 @@ test('# actions', t => {
     }, state, todo, title)
   })
 
-  t.test('toggle()', t => {
+  t.test('toggle', t => {
     t.plan(2)
 
     var todo = todos.last()
@@ -89,7 +89,7 @@ test('# actions', t => {
     }, state, todo)
   })
 
-  t.test('toggleAll()', t => {
+  t.test('toggleAll', t => {
     t.plan(2)
 
     actions.toggleAll(s => {
@@ -101,7 +101,7 @@ test('# actions', t => {
     }, state, true)
   })
 
-  t.test('clearCompleted()', t => {
+  t.test('clearCompleted', t => {
     t.plan(2)
 
     actions.clearCompleted(s => {

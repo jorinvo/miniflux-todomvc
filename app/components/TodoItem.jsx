@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react'
+import {Map} from 'immutable'
 import Pure from 'react/lib/ReactComponentWithPureRenderMixin'
 import classNames from 'classnames'
 
@@ -10,8 +11,8 @@ export default React.createClass({
   mixins: [Pure],
 
   propTypes: {
-    actions: PropTypes.object.required,
-    todo: PropTypes.object.required,
+    actions: PropTypes.objectOf(PropTypes.func).isRequired,
+    todo: PropTypes.instanceOf(Map).isRequired,
     editing: PropTypes.string
   },
 
