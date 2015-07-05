@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import {List} from 'immutable'
+import {Map} from 'immutable'
 import Pure from 'react/lib/ReactComponentWithPureRenderMixin'
 import Footer from './Footer'
 import TodoItem from './TodoItem'
@@ -10,7 +10,7 @@ export default React.createClass({
 
   propTypes: {
     actions: PropTypes.objectOf(PropTypes.func).isRequired,
-    todos: PropTypes.instanceOf(List).isRequired,
+    todos: PropTypes.instanceOf(Map).isRequired,
     editing: PropTypes.string,
     params: PropTypes.object.isRequired
   },
@@ -49,16 +49,16 @@ export default React.createClass({
   renderTodoItems () {
     return this.props.todos
       .filter(todoFilters[this.getFilterOption()])
-      .map(todo => {
-        return (
-          <TodoItem
-            key = {todo.get('id')}
-            todo={todo}
-            actions={this.props.actions}
-            editing={this.props.editing}
-          />
-        )
-      })
+      .map((todo, id) => (
+        <TodoItem
+          key = {id}
+          todo={todo}
+          actions={this.props.actions}
+          editing={this.props.editing}
+        />
+      ))
+      // React doesn't support Maps yet
+      .toList()
   },
 
   renderFooter (activeCount) {

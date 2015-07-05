@@ -18,7 +18,12 @@ export default React.createClass({
   getInitialState () {
     return {
       data: fromJS({
-        todos: store(localStorageKey),
+        // We store the todos as array but in the state we want them as a Map.
+        todos: store(localStorageKey)
+          .reduce((todos, todo) => {
+            todos[todo.id] = todo
+            return todos
+          }, {}),
         editing: null
       })
     }
@@ -33,7 +38,7 @@ export default React.createClass({
     // Compose it to your needs.
     var render = state => {
       this.setState({ data: state })
-      store(localStorageKey, state.get('todos').toJS())
+      store(localStorageKey, state.get('todos').toArray())
     }
     this.actions = bindActions(actionFunctions, render, this.state.data)
   },

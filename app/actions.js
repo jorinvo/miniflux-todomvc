@@ -4,20 +4,21 @@ import uuid from 'node-uuid'
 export default {
 
   add (render, state, title) {
+    var id = uuid.v4()
     var todo = Map({
       title,
-      id: uuid.v4(),
+      id,
       completed: false
     })
 
     render(
-      state.update('todos', todos => todos.push(todo))
+      state.setIn(['todos', id], todo)
     )
   },
 
   destroy (render, state, todo) {
     render(
-      state.update('todos', todos => todos.delete(todos.indexOf(todo)))
+      state.deleteIn(['todos', todo.get('id')])
     )
     this.stopEditing()
   },
@@ -36,19 +37,14 @@ export default {
 
   update (render, state, todo, title) {
     render(
-      state.update('todos', todos => todos.set(
-        todos.indexOf(todo), todo.set('title', title)
-      ))
+      state.setIn(['todos', todo.get('id'), 'title'], title)
     )
     this.stopEditing()
   },
 
   toggle (render, state, todo) {
     render(
-      state.update('todos', todos => todos.set(
-        todos.indexOf(todo),
-        todo.set('completed', !todo.get('completed'))
-      ))
+      state.setIn(['todos', todo.get('id'), 'completed'], !todo.get('completed'))
     )
   },
 
