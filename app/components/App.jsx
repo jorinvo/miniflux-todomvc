@@ -29,7 +29,7 @@ export default React.createClass({
   },
 
   renderTodoList (activeCount) {
-    if (!this.props.todos.size) return
+    if (this.props.todos.isEmpty()) return
 
     return (
       <section className='main'>
