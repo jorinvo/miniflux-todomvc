@@ -27,6 +27,7 @@
     "start": "node webpack.js",
     "lint": "standard app",
     "build": "npm run lint && webpack --config webpack.prod.js",
+    "build-dev": "CLIENT_ENV=development npm run build",
     "test": "npm run lint && babel-node app/test.js | tap-spec",
     "watch-tests": "watch 'npm run test' app"
   },
