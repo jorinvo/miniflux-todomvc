@@ -3,6 +3,7 @@ import {fromJS} from 'immutable'
 import actionFunctions from '../actions'
 import bindActions from '../utils/bindActions'
 import {store} from '../utils/helpers'
+import timeTravel from '../utils/timeTravel'
 import Header from './Header.jsx'
 
 const localStorageKey = 'react-todos'
@@ -31,12 +32,15 @@ export default React.createClass({
 
   componentWillMount () {
     this.bindActions()
+    // Initialize once with data.
+    if (process.env.NODE_ENV !== 'production') timeTravel(null, this.state.data)
   },
 
   bindActions () {
     // The render function can do everything with the state.
     // Compose it to your needs.
     var render = state => {
+      if (process.env.NODE_ENV !== 'production') timeTravel(render, state)
       this.setState({ data: state })
       store(localStorageKey, state.get('todos').toArray())
     }

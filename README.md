@@ -5,6 +5,10 @@ I rebuilt [TodoMVC][todomvc] to learn how to use the ideas behind the [Flux][flu
 To learn more about my motivation behind this, checkout [this blog post][post].
 
 You can see a working version of this running on [GH-Pages][pages].
+This version is in development mode. So you can try out time traveling
+and you can access the global helpers `render`, `actions`, `state` and `states`.
+
+![Time travel](http://jorin.me/images/miniflux/timetravel.gif)
 
 
 ## Technologies
@@ -27,6 +31,7 @@ To name a few you might be interested in:
 - To get a production version use `npm run build`.
 - For testing use `npm test`.
 - To keep running the tests on file changes use `npm run watch-tests`.
+- To build a development version run `npm run build-dev`.
 
 
 ## Contributing
@@ -37,6 +42,12 @@ Feel free to ask in the [issues][issues], if you have any question.
 
 If you can help me improve this example application open a [pull request][pr]
 or start a discussion in the [issues][issues].
+
+
+## License
+
+MIT
+
 
 
 [todomvc]: http://todomvc.com/
@@ -54,8 +65,3 @@ or start a discussion in the [issues][issues].
 [localhost]: http://localhost:3000/
 [issues]: https://github.com/jorin-vogel/miniflux-todomvc/issues
 [pr]: https://github.com/jorin-vogel/miniflux-todomvc/pulls
-
-
-## License
-
-MIT
