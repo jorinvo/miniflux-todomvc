@@ -23,7 +23,7 @@ export default React.createClass({
 
     return (
       <div>
-        <Header actions={this.actions} />
+        <Header actions={this.props.actions} />
         {this.renderTodoList(activeCount)}
         {this.renderFooter(activeCount)}
       </div>
