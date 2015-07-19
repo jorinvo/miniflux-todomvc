@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import {Map} from 'immutable'
 import Pure from 'react/lib/ReactComponentWithPureRenderMixin'
+import Header from './Header'
 import Footer from './Footer'
 import TodoItem from './TodoItem'
 
@@ -22,6 +23,7 @@ export default React.createClass({
 
     return (
       <div>
+        <Header actions={this.actions} />
         {this.renderTodoList(activeCount)}
         {this.renderFooter(activeCount)}
       </div>

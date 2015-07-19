@@ -4,7 +4,6 @@ import actionFunctions from '../actions'
 import bindActions from '../utils/bindActions'
 import {store} from '../utils/helpers'
 import timeTravel from '../utils/timeTravel'
-import Header from './Header.jsx'
 
 const localStorageKey = 'react-todos'
 
@@ -58,15 +57,11 @@ export default React.createClass({
     // .cloneElement() is probably not the nicest solution.
     return (
       <div>
-
-        <Header actions={this.actions} />
-
         {React.cloneElement(this.props.children, {
           actions: this.actions,
           todos: this.state.data.get('todos'),
           editing: this.state.data.get('editing')
         })}
-
       </div>
     )
   }
